@@ -1,0 +1,33 @@
+{
+  "platform": "Linux-5.15.146.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "cpu_model": "Intel(R) Core(TM) i9-14900HX",
+  "available_cpus": 32,
+  "benchmark_cpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)\nbinary: rustc\ncommit-hash: b940084d7eb6a299eb4bfeb8e34901bc051e7ac4\ncommit-date: 2026-09-28\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.0\nLLVM version: 23.1.1\n",
+  "base": {
+    "upstream_commit": "1e288eaabee84c593da0a77e106aa1ed84d864cc",
+    "candidate_commit": "e24aa211006ec0a20e30d96c367148d953af607a"
+  },
+  "preparation": {
+    "assets_version": "1.6.0",
+    "assets_count": 47,
+    "assets_crate_sha256": "5d9345b46c57402962ba0f02e8513d69ef24e14e068073d4d06f5bfdd8c437d0",
+    "build_profile": {
+      "opt-level": "s",
+      "lto": true,
+      "strip": true
+    },
+    "common_preparation": [
+      "prebuilt 1.6.0 assets",
+      "package version 1.6.0",
+      "benchmark example and feature",
+      "dev-only tokio/io-util"
+    ]
+  },
+  "note": "Synthetic input only. CPU affinity and Rayon threads fixed to one or four. Upstream GNU release profile unchanged; WSL timing variance is reported in the ranges."
+}

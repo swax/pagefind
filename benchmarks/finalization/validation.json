@@ -1,0 +1,51 @@
+{
+  "upstream_commit": "1e288eaabee84c593da0a77e106aa1ed84d864cc",
+  "candidate_commit": "e24aa211006ec0a20e30d96c367148d953af607a",
+  "consuming_api_commit": "b12eeed9e05f0785641ae64c537fe0fce55a9945",
+  "no_default_features_release_tests": {
+    "existing_unit_tests": 43,
+    "new_regression_tests": 4,
+    "passed": true
+  },
+  "default_features_release_tests": {
+    "existing_unit_tests": 43,
+    "passed": true
+  },
+  "extended_release_tests": {
+    "existing_unit_tests": 43,
+    "new_regression_tests": 4,
+    "passed": true
+  },
+  "web_release_tests": {
+    "passed": 4
+  },
+  "javascript_tests": {
+    "passed": 21
+  },
+  "toolproof": {
+    "passed": 345,
+    "failures": 0,
+    "changed_snapshots": 0,
+    "retries": 0,
+    "note": "Default and Component UI built from current upstream source to match post-1.6.0 snapshots; benchmark resource set remained the identical published 1.6.0 assets."
+  },
+  "release_benchmark_runs": 60,
+  "additional_multilingual_parity_runs": 5,
+  "portable_reproduction_smoke": {
+    "release_runs": 10,
+    "multilingual_parity_runs": 5,
+    "passed": true
+  },
+  "clippy": {
+    "baseline_exit_code": 101,
+    "baseline-clippy_denied_lints": [
+      "clippy::erasing_op",
+      "clippy::unused_io_amount"
+    ],
+    "clippy_denied_lints": [
+      "clippy::erasing_op",
+      "clippy::unused_io_amount"
+    ],
+    "candidate_with_exact_baseline_lints_allowed_exit_code": 0
+  }
+}

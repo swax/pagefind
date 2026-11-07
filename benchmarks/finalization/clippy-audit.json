@@ -1,0 +1,12 @@
+{
+  "baseline_exit_code": 101,
+  "baseline-clippy_denied_lints": [
+    "clippy::erasing_op",
+    "clippy::unused_io_amount"
+  ],
+  "clippy_denied_lints": [
+    "clippy::erasing_op",
+    "clippy::unused_io_amount"
+  ],
+  "candidate_with_exact_baseline_lints_allowed_exit_code": 0
+}

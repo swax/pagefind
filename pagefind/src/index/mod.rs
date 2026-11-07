@@ -43,7 +43,7 @@ enum SortType {
     Number,
 }
 
-/// Results from processing a single page in parallel.
+/// Results from processing a single page, merged before converting the next.
 /// Contains the word map, filter entries, and encoded page data for one page.
 struct PageProcessingResult {
     word_map: HashMap<String, PackedWord>,
@@ -141,13 +141,14 @@ pub async fn build_indexes(
     }
     meta.meta_fields = meta_fields_set.into_iter().collect();
 
-    // Clone meta_fields for use in parallel processing
+    // Stable metadata field IDs used while converting pages.
     let meta_fields_ref = meta.meta_fields.clone();
     let language_ref = language.clone();
 
-    // Process pages in parallel - each page builds its own word map
-    let page_results: Vec<PageProcessingResult> = pages
-        .into_par_iter()
+    // Merge each page before converting the next. Collecting every per-page word
+    // map duplicates the corpus at peak, even with only one Rayon worker.
+    let page_results = pages
+        .into_iter()
         .map(|page| {
             let mut local_word_map: HashMap<String, PackedWord> = HashMap::new();
 
@@ -318,8 +319,7 @@ pub async fn build_indexes(
                 filter_entries,
                 encoded_page,
             }
-        })
-        .collect();
+        });
 
     // Merge results sequentially
     for result in page_results {

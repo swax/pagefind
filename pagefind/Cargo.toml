@@ -1,6 +1,6 @@
 [package]
 name = "pagefind"
-version = "0.0.0"
+version = "1.5.2"
 edition = "2021"
 include = ["/src", "/vendor", "/features", "/tests"]
 description = "Implement search on any static website."
@@ -19,6 +19,7 @@ tokio = { version = "1", features = [
     "time",
     "macros",
     "sync",
+    "io-util",
 ] }
 pagefind_stem = { version = "1.0.0", features = [
     "arabic",

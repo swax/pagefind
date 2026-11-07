@@ -222,6 +222,14 @@ impl PagefindIndex {
         state.build_indexes().await?;
         Ok(state.get_files().await)
     }
+
+    /// Finalize a disposable index without retaining its parsed input corpus.
+    /// The index is consumed so callers cannot append to an incomplete state.
+    pub async fn into_files(self) -> Result<Vec<SyntheticFile>> {
+        let mut state = self.search_index.lock().await;
+        state.build_indexes_with_consumption(true).await?;
+        Ok(state.get_files().await)
+    }
 }
 
 #[cfg(test)]

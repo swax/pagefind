@@ -2,7 +2,7 @@ name: Test
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/upstream-ci]
   pull_request:
     branches: [main]
   merge_group:
